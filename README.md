@@ -6,6 +6,7 @@
 | ---------------    | ---------- | ------------------------- |
 | email              | string     | null: false, unique: true |
 | encrypted_password | string     | null: false               |
+| nickname           | string     | null: false               |
 | first_name         | string     | null: false               |
 | last_name          | string     | null: false               |
 | first_name_kana    | string     | null: false               |
@@ -49,12 +50,12 @@
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | user            | references | null: false, foreign_key: true |
-| items           | references | null: false, foreign_key: true |
+| item            | references | null: false, foreign_key: true |
 
 
 ### Association 
 
-- has_many : where_to
+- has_one    : where_to
 - belongs_to :user
 - belongs_to :item
 
@@ -64,12 +65,12 @@
 | Column                | Type       | Options                        |
 | --------------------- | ---------- | ------------------------------ |
 | post_code             | string     | null: false                    |
-| prefecture_id         | integer     | null: false                    |
+| prefecture_id         | integer    | null: false                    |
 | city                  | string     | null: false                    |
 | street                | string     | null: false                    |
-| name_of_the_building | string     | null: false                    |
+| name_of_the_building  | string     |                                |
 | phone_number          | string     | null: false                    |
-| buy_items             | references | null: false, foreign_key: true |
+| buy_item              | references | null: false, foreign_key: true |
 
 ### Association 
 
