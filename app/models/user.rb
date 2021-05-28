@@ -18,4 +18,6 @@ class User < ApplicationRecord
                   end
               end
          end
+
+         has_many :items
 end
