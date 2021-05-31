@@ -1,5 +1,5 @@
 class DueDay < ActiveHash::Base
-  self.date = [
+  self.data = [
     {id: 1, name: "---"},
     {id: 2, name: "1日〜２日で発送"},
     {id: 3, name: "２日〜３日で発送"},
