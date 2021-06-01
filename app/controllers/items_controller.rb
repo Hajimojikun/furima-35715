@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only:[:new,:create,:edit,:update]
   before_action :make_instance, only:[:show, :edit, :update]
-  before_action :move_to, only:[:update,:dastroy]
+  before_action :move_to, only:[:edit, :update,:destroy]
   
 
 
