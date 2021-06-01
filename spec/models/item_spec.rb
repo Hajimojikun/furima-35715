@@ -147,6 +147,18 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Price is not a number", "Price is not included in the list")
     end
 
+    it '商品価格が半角英数字混合では出品できない' do 
+      @item.price = "89ui"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is not a number", "Price is not included in the list")
+    end
+    
+    it '商品価格が半角英字のみでは出品できない' do 
+      @item.price = "titotot"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is not a number", "Price is not included in the list")
+    end
+
     it "商品画像は１枚つけることが必須である" do
       @item.image = nil
       @item.valid?
