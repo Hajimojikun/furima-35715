@@ -131,7 +131,7 @@
       <% @items.each do |item| %>
 
       <li class='list'>
-        <%= link_to "#" do %>
+        <%= link_to item_path(item.id) do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
@@ -176,9 +176,9 @@
         </div>
         <% end %>
       </li>
-
     </ul>
   </div>
+  <% end %>
   <%# /商品一覧 %>
 </div>
 <%= link_to(new_item_path, class: 'purchase-btn') do %>
