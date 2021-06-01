@@ -126,37 +126,37 @@ RSpec.describe Item, type: :model do
     it "販売価格の情報が必須であること" do
       @item.price = ""
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price can't be blank", "Price is not a number")
+      expect(@item.errors.full_messages).to include("Price can't be blank", "Price is invalid", "Price is not included in the list")
     end
-
+    
     it "販売価格は、¥300未満の金額は保存不可能であること" do
       @item.price = 299
       @item.valid?
       expect(@item.errors.full_messages).to include("Price is not included in the list")
     end
-
+    
     it "販売価格は、¥9,999,999超える金額は保存不可能であること" do
       @item.price = 10000000
       @item.valid?
       expect(@item.errors.full_messages).to include("Price is not included in the list")
     end
-
+    
     it "販売価格は半角数字以外保存不可能であること" do
       @item.price = "３５６"
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price is not a number", "Price is not included in the list")
+      expect(@item.errors.full_messages).to include("Price is not included in the list")
     end
 
     it '商品価格が半角英数字混合では出品できない' do 
       @item.price = "89ui"
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price is not a number", "Price is not included in the list")
+      expect(@item.errors.full_messages).to include("Price is not included in the list")
     end
     
     it '商品価格が半角英字のみでは出品できない' do 
       @item.price = "titotot"
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price is not a number", "Price is not included in the list")
+      expect(@item.errors.full_messages).to include("Price is not included in the list")
     end
 
     it "商品画像は１枚つけることが必須である" do
