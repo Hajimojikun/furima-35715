@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order("created_at DESC")
-    @buy_items = BuyItem.select("item_id")
   end
 
   def new
