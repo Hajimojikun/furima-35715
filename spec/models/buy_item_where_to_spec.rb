@@ -33,9 +33,6 @@ RSpec.describe BuyItem, type: :model do
         expect(@buy_item_where_to).to be_valid
       end
       
-      it "" do
-        sleep(0.1)
-      end
     end
 
     context '商品の購入ができない' do 
