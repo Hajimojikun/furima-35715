@@ -1,11 +1,9 @@
 class BuyItemsController < ApplicationController
-before_action :authenticate_user!, only:[:index, :create]
-before_action :find_params, only:[:index, :create]
+before_action :authenticate_user!
+before_action :find_params
+before_action :move_to_index
 
   def index
-    @buy_items = BuyItem.find_by(item_id: params[:item_id])
-    user_id = @buy_item.user.id
-    redirect_to root_path unless current_user.id != user_id && @buy_items.nil?
     @buy_item_where_to = BuyItemWhereTo.new
   end
 
@@ -14,7 +12,7 @@ before_action :find_params, only:[:index, :create]
      if @buy_item_where_to.valid?
         pay_item
         @buy_item_where_to.save
-        redirect_to item_path(@buy_item.id)
+        redirect_to root_path
      else
       render :index
      end
@@ -36,5 +34,10 @@ before_action :find_params, only:[:index, :create]
     end
     def find_params
       @buy_item = Item.find(params[:item_id])
+    end
+
+    def move_to_index
+      @buy_items = BuyItem.find_by(item_id: params[:item_id])
+      redirect_to root_path if current_user.id == @buy_item.user_id || @buy_item.buy_item != nil
     end
 end

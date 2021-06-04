@@ -1,7 +1,7 @@
 class BuyItemWhereTo
 
     include ActiveModel::Model
-    attr_accessor :user_id, :item_id,:image, :post_code, :city, :street, :name_of_the_building, :prefecture_id, :phone_number, :token
+    attr_accessor :user_id, :item_id,:post_code, :city, :street, :name_of_the_building, :prefecture_id, :phone_number, :token
 
     with_options presence: true do
       validates :token
