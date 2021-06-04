@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only:[:new,:create,:edit,:update]
   before_action :make_instance, only:[:show, :edit, :update]
-  before_action :search_bought_item, only:[:show, :edit, :update, :destroy]
   before_action :move_to, only:[:edit, :update,:destroy]
   
 
@@ -52,14 +51,10 @@ class ItemsController < ApplicationController
   end
   
   def move_to
-    redirect_to root_path unless @item.user.id == current_user.id && @buy_items.nil?
+    redirect_to root_path unless @item.user.id == current_user.id
   end
 
   def make_instance
     @item = Item.find(params[:id])
-  end
-
-  def search_bought_item
-    @buy_items = BuyItem.find_by(item_id: params[:id])
   end
 end
