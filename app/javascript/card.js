@@ -6,7 +6,7 @@ const pay = () => {
 
     
     const formResult = document.getElementById("charge-form");
-    const formData   = new FormData(formResult); //FormDateでVScodeでFormデータを使用できるようにしている
+    const formData   = new FormData(formResult);
 
     const card = {
       number:    formData.get("buy_item_where_to[number]"),
