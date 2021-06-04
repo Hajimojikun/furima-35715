@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only:[:new,:create,:edit,:update]
   before_action :make_instance, only:[:show, :edit, :update]
-  before_action :move_to, only:[:edit, :update,:destroy]
   before_action :search_bought_item, only:[:show, :edit]
+  before_action :move_to, only:[:edit, :update,:destroy]
   
 
 
@@ -28,7 +28,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    redirect_to root_path unless @buy_items.nil?
   end
 
   def update
@@ -54,7 +53,7 @@ class ItemsController < ApplicationController
   end
   
   def move_to
-    redirect_to root_path unless @item.user.id == current_user.id
+    redirect_to root_path unless @item.user.id == current_user.id && @buy_items.nil?
   end
 
   def make_instance

@@ -37,7 +37,6 @@ before_action :move_to_index
     end
 
     def move_to_index
-      @buy_items = BuyItem.find_by(item_id: params[:item_id])
       redirect_to root_path if current_user.id == @buy_item.user_id || @buy_item.buy_item != nil
     end
 end
