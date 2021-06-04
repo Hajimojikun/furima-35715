@@ -82,15 +82,15 @@ ActiveRecord::Schema.define(version: 2021_06_02_071734) do
     t.string "name_of_the_building"
     t.string "phone_number", null: false
     t.integer "prefecture_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "buy_item_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_where_tos_on_user_id"
+    t.index ["buy_item_id"], name: "index_where_tos_on_buy_item_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "buy_items", "items"
   add_foreign_key "buy_items", "users"
   add_foreign_key "items", "users"
-  add_foreign_key "where_tos", "users"
+  add_foreign_key "where_tos", "buy_items"
 end

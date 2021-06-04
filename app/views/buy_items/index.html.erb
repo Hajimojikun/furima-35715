@@ -2,6 +2,7 @@
 
 <div class='transaction-contents'>
   <div class='transaction-main'>
+   <%= render partial: 'shared/error_messages', locals:{user: @buy_item_where_to} %>
     <h1 class='transaction-title-text'>
       購入内容の確認
     </h1>
@@ -26,7 +27,7 @@
         支払金額
       </h1>
       <p class='item-payment-price'>
-        ¥<%= @buy_item.price %>
+        ¥ <%= @buy_item.price %>
       </p>
     </div>
     <%# /支払額の表示 %>
@@ -67,7 +68,7 @@
           <label class="form-text">セキュリティコード</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_field :cvc,class:"input-default", id:"card-cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4" %>
+        <%= f.text_field :cvc ,class:"input-default", id:"card-cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4" %>
       </div>
     </div>
     <%# /カード情報の入力 %>
