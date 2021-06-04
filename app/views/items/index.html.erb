@@ -136,13 +136,11 @@
           <%= image_tag item.image, class: "item-img" %>
 
           <%# 商品が売れていればsold outを表示しましょう %>
-          <%@buy_items.each do |buy_item|%>
-            <%if item.id == buy_item.item_id%>
+            <%if item.buy_item.present?%>
             <div class='sold-out'>
               <span>Sold Out!!</span>
             </div>
             <% end %>
-          <%end%>
           <%# //商品が売れていればsold outを表示しましょう %>
 
         </div>
