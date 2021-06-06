@@ -1,11 +1,11 @@
 class Item < ApplicationRecord
+  validates :image, presence:{message: "のファイルを添付して下さい"}
   with_options presence: true do
      validates :name 
      validates :description
-     validates :image
      validates :user
-     validates :price, format:{ with: /\A[0-9]+\z/}, inclusion: {in: 300..9999999}
-        with_options numericality: {other_than: 1} do
+     validates :price, format:{ with: /\A[0-9]+\z/, message: "を正しく入力してください"}, inclusion: {in: 300..9999999, message: "を範囲内にお願いします"}
+        with_options numericality: {other_than: 1, message: "を選んでください"} do
           validates :category_id
           validates :state_id
           validates :who_pay_id
