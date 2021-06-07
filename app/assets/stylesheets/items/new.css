@@ -109,6 +109,11 @@
   margin-top: 2vh;
 }
 
+.image-js-resize{
+  height: 300px;
+  width: 300px;
+}
+
 /* /商品名と商品説明 */
 
 /* 商品の詳細など */
