@@ -1,4 +1,5 @@
 const calc = () =>{
+  if(document.getElementById('item-price')){
   const item_price = document.getElementById("item-price");
   const item_tax = document.getElementById("add-tax-price");
   const item_benefit = document.getElementById("profit");
@@ -10,6 +11,7 @@ const calc = () =>{
     const sum_tax = calc_tax(item_price,tax);
     item_benefit.innerHTML = calc_benefit(item_price,sum_tax);
   })
+ }
 }
 
 function calc_tax(item_price,tax){
