@@ -1,3 +1,4 @@
+<% breadcrumb :user_new%>
 <%= render "shared/second-header"%>
 
 <%= form_with model: @user, url: user_registration_path, method: :post, class: 'registration-main', local: true do |f| %>
